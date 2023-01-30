@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div v-html="htmlString"></div>
+    <root />
   </div>
 </template>
 
@@ -11,5 +11,7 @@ const props = defineProps<{
   content: string;
 }>();
 
-const htmlString = katex.renderToString(props.content);
+const root = defineComponent({
+  template: katex.renderToString(props.content),
+});
 </script>
